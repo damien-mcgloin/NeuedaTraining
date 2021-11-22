@@ -1,0 +1,116 @@
+<h3 class="title">Stocks to watch</h3>
+
+<div id="linechart_material" style="width: 900px; height: 500px"></div>
+
+<!--
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="http://www.forex.com/~/media/a6d6a63c38bc42d3b8f7a454734d4ebf.ashx" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="https://www.asktraders.com/wp-content/uploads/2020/10/Screen-Shot-2020-10-14-at-9.58.30-AM.png" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="https://www.asktraders.com/wp-content/uploads/2020/08/Screen-Shot-2020-08-04-at-12.01.56-PM.png" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+-->
+
+<h3 class="title">Guidance</h3>
+<h6 class="title">enter a stockticker and click submit</h6>
+<div class ="charts">
+  <form class="row g-3">
+  <div class="col-md-4">
+    <label for="validationDefault01" class="form-label">Ticker</label>
+    <select class="form-select" onchange="Check();" id="validationDefault01" required>
+      <option selected disabled value="">Choose...</option>
+      <option>AMZN</option>
+      <option>NFLX</option>
+      <option>TLSA</option>
+    </select>
+  </div>
+  <div class="col-md-4">
+    <label for="validationDefault02" class="form-label">Last Close</label>
+    <input type="text" class="form-control" id="validationDefault02" value="" required>
+  </div>
+  <div class="col-md-4">
+    <label for="validationDefault03" class="form-label">Upper Band</label>
+    <input type="text" class="form-control" id="validationDefault03" value="" required>
+  </div>
+  <div class="col-md-6">
+    <label for="validationDefault04" class="form-label">Lower Band</label>
+    <input type="text" class="form-control" id="validationDefault04" value="" required>
+  </div>
+  <div class="col-md-3">
+    <label for="validationDefault05" class="form-label">Advice</label>
+    <input type="text" class="form-control" id="validationDefault05" value="" required>
+  </div>
+  <div class="col-12">
+    <button class="btn btn-primary" onclick="Check();" type="submit">Submit</button>
+  </div>
+</form>
+</div>
+
+<h3 class="title">US and UK stocks to buy and sell on D.G.N.M</h3>
+
+<form class="d-flex search">
+  <input class="form-control me-2" id="validationDefault06" type="search" placeholder="Search" aria-label="Search">
+  <button class="btn btn-outline-success" onclick="search();" type="submit">Search</button>
+</form>
+
+<div>
+	<div class="col-md-12">
+	  <table class="table table-bordered table-hover">
+		<thead>
+		  <tr>
+			<th scope="col">Open</th>
+			<th scope="col">Close</th>
+			<th scope="col">Volume</th>
+			<th scope="col">Low</th>
+      <th scope="col">Date</th>
+		  </tr>
+		</thead>
+		<tbody>
+		  <tr>
+			<td><input type="text" class="form-control" id="row1" value="" required></td>
+			<td><input type="text" class="form-control" id="row2" value="" required></td>
+			<td><input type="text" class="form-control" id="row3" value="" required></td>
+      <td><input type="text" class="form-control" id="row4" value="" required></td>
+			<td><input type="text" class="form-control" id="row5" value="" required></td>
+		  </tr>
+		</tbody>
+	  </table>
+	</div>
+</div>
+
+ <div class='footer-background container-fluid' style="background-color: #212529; height: auto;">
+      <div class='row'>
+        <div class='footer-text col-lg-9 col-md-8 col-sm-12'>
+          <a class='navbar-brand' style="color: white">D.G.N.M</a>
+          <p class='copyright-text' style="color: gray; font-size: 0.8rem;">© Copyright D.G.N.M Trading. All trademarks and registered trademarks are the property of their respective owners.</p>
+        </div>
+        <div class='footer-social col-lg-3 col-md-4'>
+          <div class='d-flex justify-content-center'>
+            <a href='https://www.facebook.com' target='_blank'><i class='social-icon fab fa-facebook-f' style="color: white; margin: 20px 10px"></i></a>
+            <a href='https://www.twitter.com' target='_blank'><i class='social-icon fab fa-twitter' style="color: white; margin: 20px 10px"></i></a>
+            <a href='https://www.instagram.com' target='_blank'><i class='social-icon fab fa-instagram' style="color: white; margin: 20px 10px"></i></a>
+            <a href='mailto:fakeemail@gmail.com'><i class='social-icon fas fa-envelope' style="color: white; margin: 20px 10px"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>

@@ -1,0 +1,83 @@
+
+<div>
+	<div class="col-md-12">
+	  <table class="table table-bordered">
+		<thead>
+		  <tr>
+			<th scope="col">Stockticker</th>
+			<th scope="col">Price</th>
+			<th scope="col">Volume</th>
+      <th scope="col">Total Price</th>
+      <th scope="col">Buy or Sell</th>
+		  </tr>
+		</thead>
+		<tbody>
+    <tr>
+	    <td><input type="text" id="StockTicker" onchange="CheckTickerPrice(); StockCheck();" [(ngModel)]="StockDetails.stockTicker" class="form-control"></td>
+
+      <td><input type="text" class="form-control" id="closeTotal"  value="" >
+      <input type="text" class="form-control" id="StockDetails.price" [(ngModel)]="StockDetails.price" value="closeTotal" ></td>
+
+      <td><input type="text" id="stockVolume"  onchange=(CheckTickerPrice()) [(ngModel)]="StockDetails.volume"  class="form-control">
+
+      </td>
+      <td><input type="text" class="form-control" id="liveTotal"  value= "" required></td>
+      <td><input type="text" id="stockBuyOrSell"  onchange=(CheckTickerPrice()) [(ngModel)]="StockDetails.buyOrSell"  class="form-control"></td>
+			<td>
+        <button class="btn btn-success btn-block" (click)=purchaseStock()>Execute</button>
+			</td>
+
+		  </tr>
+		</tbody>
+	  </table>
+	</div>
+  </div>
+
+<div>
+  <div class="col-md-12">
+	  <table class="table table-bordered">
+		<thead>
+		  <tr>
+      <th scope="col">country</th>
+			<th scope="col">exchange</th>
+			<th scope="col">industry</th>
+      <th scope="col">website</th>
+		  </tr>
+		</thead>
+		<tbody>
+		  <tr>
+			<td><input type="text" id="country"  class="form-control"></td>
+      <td><input type="text" id="exchange" class="form-control"></td>
+      <td><input type="text" id="industry" class="form-control"></td>
+      <td><input type="text" id="url" class="form-control"></td>
+
+
+
+
+		  </tr>
+
+		</tbody>
+	  </table>
+	</div>
+</div>
+<div>
+  <img src="https://daytradingz.com/wp-content/uploads/2021/01/Trade-Ideas-AI-Trading-daytrading.jpg"  class="banner">
+</div>
+
+ <div class='footer-background container-fluid' style="background-color: #212529; height: auto;">
+      <div class='row'>
+        <div class='footer-text col-lg-9 col-md-8 col-sm-12'>
+          <a class='navbar-brand' style="color: white">D.G.N.M</a>
+          <p class='copyright-text' style="color: gray; font-size: 0.8rem;">© Copyright D.G.N.M Trading. All trademarks and registered trademarks are the property of their respective owners.</p>
+        </div>
+        <div class='footer-social col-lg-3 col-md-4'>
+          <div class='d-flex justify-content-center'>
+            <a href='https://www.facebook.com' target='_blank'><i class='social-icon fab fa-facebook-f' style="color: white; margin: 20px 10px"></i></a>
+            <a href='https://www.twitter.com' target='_blank'><i class='social-icon fab fa-twitter' style="color: white; margin: 20px 10px"></i></a>
+            <a href='https://www.instagram.com' target='_blank'><i class='social-icon fab fa-instagram' style="color: white; margin: 20px 10px"></i></a>
+            <a href='mailto:fakeemail@gmail.com'><i class='social-icon fas fa-envelope' style="color: white; margin: 20px 10px"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+

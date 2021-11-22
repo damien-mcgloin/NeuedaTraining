@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>StockTradingUI</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+
+
+      google.charts.load('current', {'packages':['line']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+      var data = new google.visualization.DataTable();
+      data.addColumn('number', 'days');
+      data.addColumn('number', 'value');
+
+      let xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+              var myArr = JSON.parse(this.response);
+          }
+        };
+
+      xhttp.open("GET","https://3p7zu95yg3.execute-api.us-east-1.amazonaws.com/default/priceFeed2?ticker=TSLA&num_days=10");
+      xhttp.send();
+
+      /*
+        [1, myArr.price_data[0].value],
+        [2, myArr.price_data[1].value],
+        [3, myArr.price_data[2].value],
+        [4, myArr.price_data[3].value],
+        [5, myArr.price_data[4].value],
+        [6, myArr.price_data[5].value],
+        [7, myArr.price_data[6].value],
+        [8, myArr.price_data[7].value],
+        [9, myArr.price_data[8].value],
+        [10, myArr.price_data[9].value]
+      */
+
+                    data.addRows([
+        [1,  782.75],
+        [2,  793.6099853515625],
+        [3,  785.489990234375],
+        [4,  791.9400024414062],
+        [5,  805.719970703125],
+        [6,   811.0800170898438],
+        [7,   818.3200073242188],
+        [8,  843.030029296875],
+        [9,  870.1099853515625],
+        [10, 864.27001953125]
+      ]);
+
+      var options = {
+        chart: {
+          title: 'Daily closing prices for TSLA',
+          subtitle: 'over past ten days'
+        },
+        width: 900,
+        height: 500
+      };
+
+      var chart = new google.charts.Line(document.getElementById('linechart_material'));
+      chart.draw(data, google.charts.Line.convertOptions(options));
+      }
+
+    function Check()
+    {
+
+    let ticker = document.getElementById('validationDefault01').value
+    //let ticker = "AMZN";
+
+    let xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var j = JSON.parse(this.response);
+            document.getElementById('validationDefault02').value = j.lastClose;
+            document.getElementById('validationDefault03').value = j.upperBand;
+            document.getElementById('validationDefault04').value = j.lowerBand;
+            document.getElementById('validationDefault05').value = j.advice;
+        }
+      };
+
+    xhttp.open("GET","https://qz4sxjl623.execute-api.us-east-1.amazonaws.com/default/tradeAdvisor?ticker="+ticker);
+    xhttp.send();
+
+    return;
+  }
+
+
+function CheckTickerPrice()
+    {
+
+    let ticker = document.getElementById('StockTicker').value;
+    //let ticker = "AMZN";
+
+    let xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var j = JSON.parse(this.response);
+            document.getElementById('closeTotal').value = j.close;
+            document.getElementById('liveTotal').value = j.close * document.getElementById('stockVolume').value;
+           /* document.getElementById('liveOpen').value = j.open;
+            document.getElementById('liveStatus').value = j.status;
+            document.getElementById('liveFrom').value = j.from;
+            document.getElementById('liveVolume').value = j.from; */
+
+        }
+
+
+      };
+
+      xhttp.open("GET","https://api.polygon.io/v1/open-close/"+ticker+"/2021-10-20?2021-10-14?adjusted=true&apiKey=P5DRyDBTIs5KKzqOlly0pVleNDtpTbm2");
+      xhttp.send();
+      return;
+    }
+
+
+function search() {
+           let xhttp = new XMLHttpRequest();
+           xhttp.onreadystatechange = function() {
+           if (this.readyState == 4 && this.status == 200) {
+           var j = JSON.parse(this.response);
+            document.getElementById('row1').value = j.price_data.open;
+            document.getElementById('row2').value = j.price_data.close;
+            document.getElementById('row3').value = j.price_data.volume;
+            document.getElementById('row4').value = j.price_data.low;
+            document.getElementById('row5').value = j.price_data.date;
+        }
+      };
+
+        let ticker = document.getElementById('validationDefault06').value
+
+        xhttp.open("GET","https://c4rm9elh30.execute-api.us-east-1.amazonaws.com/default/cachedPriceData?ticker="+ticker);
+        xhttp.send();
+}
+
+function StockCheck()
+    {
+
+    let ticker = document.getElementById('StockTicker').value;
+    //let ticker = "AMZN";
+
+    let xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var j = JSON.parse(this.response);
+            document.getElementById('url').value = j.url;
+            document.getElementById('country').value = j.country;
+            document.getElementById('exchange').value = j.exchange;
+            document.getElementById('industry').value = j.industry;
+
+        }
+
+
+      };
+
+      xhttp.open("GET","https://api.polygon.io/v1/meta/symbols/"+ticker+"/company?apiKey=P5DRyDBTIs5KKzqOlly0pVleNDtpTbm2");
+      xhttp.send();
+      return;
+    }
+
+
+
+</script>
+</head>
+
+<body>
+  <app-root></app-root>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<div *ngIf="Stocktradings.length !== 0">
+	<div class="col-md-12">
+	  <table class="table table-bordered">
+		<thead>
+		  <tr>
+			<th scope="col">Stock Id</th>
+			<th scope="col">Stockticker</th>
+			<th scope="col">Price</th>
+			<th scope="col">Volume</th>
+      <th scope="col">Total Price</th>
+      <th scope="col">Date</th>
+      <th scope="col">Buy/Sell</th>
+		  </tr>
+		</thead>
+		<tbody>
+		  <tr *ngFor="let stocktrading of Stocktradings">
+			<td>{{stocktrading.id}}</td>
+			<td>{{stocktrading.stockTicker}}</td>
+			<td>{{stocktrading.price}}</td>
+      <td>{{stocktrading.volume}}</td>
+			<td>{{stocktrading.price*stocktrading.volume}}</td>
+      <td>{{stocktrading.date}}</td>
+      <td>{{stocktrading.buyOrSell}}</td>
+		  </tr>
+		</tbody>
+	  </table>
+	</div>
+</div>
+
+ <div class='footer-background container-fluid' style="background-color: #212529; height: auto;">
+      <div class='row'>
+        <div class='footer-text col-lg-9 col-md-8 col-sm-12'>
+          <a class='navbar-brand' style="color: white">D.G.N.M</a>
+          <p class='copyright-text' style="color: gray; font-size: 0.8rem;">© Copyright D.G.N.M Trading. All trademarks and registered trademarks are the property of their respective owners.</p>
+        </div>
+        <div class='footer-social col-lg-3 col-md-4'>
+          <div class='d-flex justify-content-center'>
+            <a href='https://www.facebook.com' target='_blank'><i class='social-icon fab fa-facebook-f' style="color: white; margin: 20px 10px"></i></a>
+            <a href='https://www.twitter.com' target='_blank'><i class='social-icon fab fa-twitter' style="color: white; margin: 20px 10px"></i></a>
+            <a href='https://www.instagram.com' target='_blank'><i class='social-icon fab fa-instagram' style="color: white; margin: 20px 10px"></i></a>
+            <a href='mailto:fakeemail@gmail.com'><i class='social-icon fas fa-envelope' style="color: white; margin: 20px 10px"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
